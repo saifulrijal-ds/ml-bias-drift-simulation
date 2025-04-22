@@ -1,0 +1,26 @@
+data_generation:
+  # Base dataset parameters
+  baseline_samples: 50000
+  
+  # Bias parameters
+  bias_types: ['geographic', 'gender', 'digital_access', 'occupation']
+  bias_severities: [0.5, 1.0, 1.5]
+  bias_combinations:
+    - ['geographic', 'gender']
+    - ['digital_access', 'occupation']
+    - ['geographic', 'occupation']
+    - ['gender', 'digital_access']
+    - ['geographic', 'gender', 'occupation', 'digital_access']
+  
+  # Time series parameters
+  quarterly:
+    start_date: '2021-01-01'
+    end_date: '2023-12-31'
+    interval_days: 90
+    samples_per_period: 5000
+  
+  monthly:
+    start_date: '2022-01-01'
+    end_date: '2022-12-31'
+    interval_days: 30
+    samples_per_period: 2000

@@ -1,0 +1,25 @@
+stages:
+  generate_all_data:
+    cmd: python src/data_generation/generate_all_data.py
+    deps:
+      - src/data_generation/generate_all_data.py
+      - src/data_generation/data_generator.py
+      - src/data_generation/bias_injector.py
+      - src/data_generation/drift_simulator.py
+      - params.yaml
+    params:
+      - data_generation.baseline_samples
+      - data_generation.bias_types
+      - data_generation.bias_severities
+      - data_generation.bias_combinations
+      - data_generation.quarterly
+      - data_generation.monthly
+    outs:
+      - data/synthetic/baseline_loan_data.csv
+      - data/synthetic/biased:
+          persist: true
+      - data/synthetic/time_series/quarterly:
+          persist: true
+      - data/synthetic/time_series/monthly:
+          persist: true
+    desc: "Generate all synthetic datasets for ML bias & drift simulation in finance"

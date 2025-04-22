@@ -1,0 +1,80 @@
+schema: '2.0'
+stages:
+  generate_all_data:
+    cmd: python src/data_generation/generate_all_data.py
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: d801c60280dcc41643701592d87de209
+      size: 694
+    - path: src/data_generation/bias_injector.py
+      hash: md5
+      md5: d267d6db8ab6d58ff61d3667fb9452e1
+      size: 11657
+    - path: src/data_generation/data_generator.py
+      hash: md5
+      md5: 22dc3f42f0ffef54f26f746aca4e40b5
+      size: 11471
+    - path: src/data_generation/drift_simulator.py
+      hash: md5
+      md5: e1e2d187b652f02e6fdc5b1a13588b27
+      size: 16061
+    - path: src/data_generation/generate_all_data.py
+      hash: md5
+      md5: 09c86b7b0d71ebd82f842e8fced328a1
+      size: 5516
+    params:
+      params.yaml:
+        data_generation.baseline_samples: 50000
+        data_generation.bias_combinations:
+        - - geographic
+          - gender
+        - - digital_access
+          - occupation
+        - - geographic
+          - occupation
+        - - gender
+          - digital_access
+        - - geographic
+          - gender
+          - occupation
+          - digital_access
+        data_generation.bias_severities:
+        - 0.5
+        - 1.0
+        - 1.5
+        data_generation.bias_types:
+        - geographic
+        - gender
+        - digital_access
+        - occupation
+        data_generation.monthly:
+          start_date: '2022-01-01'
+          end_date: '2022-12-31'
+          interval_days: 30
+          samples_per_period: 2000
+        data_generation.quarterly:
+          start_date: '2021-01-01'
+          end_date: '2023-12-31'
+          interval_days: 90
+          samples_per_period: 5000
+    outs:
+    - path: data/synthetic/baseline_loan_data.csv
+      hash: md5
+      md5: da4a19efc54812a7ed920a94bf64bb23
+      size: 8926862
+    - path: data/synthetic/biased
+      hash: md5
+      md5: f115385acaefad7470a194cdd2466a09.dir
+      size: 154658822
+      nfiles: 17
+    - path: data/synthetic/time_series/monthly
+      hash: md5
+      md5: ee64b787413215ab731acf90c4679df4.dir
+      size: 11860263
+      nfiles: 14
+    - path: data/synthetic/time_series/quarterly
+      hash: md5
+      md5: fd1bbc3f10eb257b7b57f1bc30585223.dir
+      size: 29414063
+      nfiles: 14

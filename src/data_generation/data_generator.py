@@ -143,9 +143,9 @@ class IndonesianLoanDataGenerator:
             prob *= 1.8
 
         # Prior loans history
-        if row['Prior_Loans_BFI'] == 'Yes' and row['Payment_History'] == 'Good':
+        if row['Prior_Loans'] == 'Yes' and row['Payment_History'] == 'Good':
             prob *= 0.6
-        elif row['Prior_Loans_BFI'] == 'Yes' and row['Payment_History'] == 'Poor':
+        elif row['Prior_Loans'] == 'Yes' and row['Payment_History'] == 'Poor':
             prob *= 2.0
 
         # Bank account
