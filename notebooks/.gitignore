@@ -1,1 +1,3 @@
 catboost_info/
+/lgbm_pipeline_test.pkl
+/lgbm_test_api.pkl

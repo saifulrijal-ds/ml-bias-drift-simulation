@@ -1,0 +1,5 @@
+outs:
+- md5: 27f1f88d06183c5c4790609a79932f84
+  size: 4870968
+  hash: md5
+  path: lgbm_pipeline_test.pkl

@@ -1,0 +1,5 @@
+outs:
+- md5: 6677c7d105c2b8fb91d3c58c461aa938
+  size: 3519320
+  hash: md5
+  path: lgbm_test_api.pkl
