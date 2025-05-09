@@ -1,0 +1,5 @@
+pycaret[full]
+dvc[s3]
+dagshub
+mlflow<=2.16.0
+jupyter
